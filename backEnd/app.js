@@ -13,7 +13,8 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb+srv://neophoto:neophoto@neophoto-8ccqw.mongodb.net/neophoto?retryWrites=true&w=majority', {
+// mongodb+srv://<username>:<password>@gettingstarted-7q2cs.mongodb.net/test
+mongoose.connect('mongodb://neofotocomua:z3{JXG-Pd)fuwN6[@188.40.170.11:27017/admin', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
