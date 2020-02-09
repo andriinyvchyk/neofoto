@@ -52,6 +52,10 @@
                     <span></span>
                 </div>
             </a>
+            <div id="podpisAU">
+                <p>O. Rudyuk<br>
+                Founder and Photographer</p>
+            </div>
         </div>
 
     </div>
@@ -64,9 +68,10 @@
             <div *ngFor="let project of photoArray | slice: numStart:numFinish" routerLink="/viewPhoto"
                 (click)="photoDetails(project)">
                 <div class="darkHoverGalary">
-                    <span class="title">{{project.nameProject}}</span>
-                    <span *ngIf="galary.lang">Детальніше</span>
-                    <span *ngIf="!galary.lang">Details</span>
+                    <span class="titleGalary">{{project.nameProject}}</span>
+                    <div class="arrowSocial arrowGalary">
+                        <span></span>
+                    </div>
                 </div>
                 <img src="{{project.arrayImg[0].path + project.arrayImg[0].filename}}" alt="">
             </div>
@@ -81,7 +86,7 @@
         <div *ngIf="!galary.lang" class="title">Our advantages</div>
         <div class="whatWe">
             <div>
-                <p *ngIf="galary.lang">Всебічний Підхід</p>
+                <p *ngIf="galary.lang">Всебічний підхід</p>
                 <p *ngIf="!galary.lang">A Comprehensive Approach</p>
                 <img src="assets/img/wwBg1.png" alt="">
             </div>
@@ -92,7 +97,7 @@
                 <img src="assets/img/wwBg2.png" alt="">
             </div>
             <div>
-                <p *ngIf="galary.lang">Своєчасне виконання замовлення</p>
+                <p *ngIf="galary.lang">Своєчасне виконання <br> замовлення</p>
                 <p *ngIf="!galary.lang">Timely Execution of the Order</p>
                 <img src="assets/img/wwBg3.png" alt="">
             </div>
@@ -112,6 +117,7 @@
                 (beforeChange)="beforeChange($event)">
                 <div ngxSlickItem class="slideRew slide" *ngFor="let item of reviews">
                     <div class="fotoRew"><img src="{{item.idImgUrl + item.idImg}}" alt=""></div>
+                    <div class="nameRew"><p>{{item.author}}</p></div>
                     <div class="textRew">{{item.response}}</div>
                 </div>
             </ngx-slick-carousel>
@@ -128,32 +134,4 @@
     <div *ngIf="scrollBtn" class="goUpBtn" (click)="scrollUp()">
         <span></span>
     </div>
-</div>
-
-
-
-
-
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{modalImg.nameProject}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modalImg" *ngFor="let item of modalImg.arrayImg">
-                    <img src="{{item.path+item.filename}}" alt="">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div> -->
+</div> 
