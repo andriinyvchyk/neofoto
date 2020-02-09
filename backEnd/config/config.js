@@ -1,15 +1,18 @@
+
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 PORTNODE = 3001;
 secretKey = 'neophotokeysecret';
-mongoose.Promise = global.Promise;
-SERVERIP = '188.40.170.11';
+SERVERIP = 'localhost';
 SERVER_PORT = '3001';
-
-mongoose.connect('mongodb://neofotocomua:z3{JXG-Pd)fuwN6[@localhost:27017/neofotocomua', {
+// mongoose.connect('mongodb+srv://neophoto:6JpfILZs7uOmDuMY@neophoto-8ccqw.mongodb.net/neophoto?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://neofotocomua:z3{JXG-Pd)fuwN6[@localhost:27017/neophoto', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
-}).then(() => console.log('Database Connected'))
+}).then( () => {
+  console.log('database connected')
+})
 .catch((error) => console.log(error));
 
 

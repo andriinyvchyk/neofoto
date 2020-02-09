@@ -12,6 +12,7 @@ const Users = mongoose.model('users', UserSchema)
 module.exports.getUserByLogin = function(login, call){
     const query = {login: login};
     Users.findOne(query, call)
+    .catch((error) => console.log('bred'))
 }
 module.exports.comparePass = function(passFromUser, userDBPass, call){
     if(passFromUser === userDBPass){

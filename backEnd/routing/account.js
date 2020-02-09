@@ -5,9 +5,9 @@ const User = require('../models/user')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
-router.post('/auth', cors(),(req, res) =>{
-    console.log(req.body.login)
-    console.log(req.body.pass)
+router.use(cors())
+
+router.post('/api/auth', cors(), (req, res) =>{
     User.getUserByLogin(req.body.login, (err, user) =>{
         if(err) throw err;
         if(!user)
@@ -32,8 +32,13 @@ router.post('/auth', cors(),(req, res) =>{
     })
 })
 
-router.get('/admin/portrait', passport.authenticate('jwt', {session: false}), (req, res)=>{
-
+router.get('/api/auth', cors(), (res, req) =>{
+    User.findOne({ 'login': 'darknes' })
+        .then(lists => {
+            console.log(lists)
+            res.send(lists)
+        })
+        .catch((error) => console.log(error))
 })
 
 module.exports = router;
