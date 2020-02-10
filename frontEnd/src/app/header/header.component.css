@@ -3,11 +3,13 @@
     position: relative;
     overflow: hidden;
 }
+.menu-min{
+    display: none;
+}
 
-.navbar-expand-lg {
+.navbar-expand {
     justify-content: flex-end;
     height: 74px;
-    
     font-weight: 400;
     color: #1a1a1a;
 }
@@ -26,6 +28,7 @@
     border: none;
     background-color: #FAFAFA;
 }
+
 @media screen and (max-width: 1670px) and (min-width: 1025px) {
     .nav-link {
         margin-right: 72px;
@@ -39,17 +42,108 @@
 }
 
 @media screen and (max-width: 769px) and (min-width: 646px) {
-    .navbar-expand-lg {
-        width: 100%;
-        flex-wrap: nowrap;
-        flex-direction: row;
+    .navbar-expand {
         justify-content: space-between;
     }
-    
-    .nav-link {
-        margin-right: 0px;
-        font-size: 18px;
+    .nav-item {
+        width: 130px;
     }
 }
 
-@media screen and (max-width: 645px) and (min-width: 200px) {}
+@media screen and (max-width: 645px) and (min-width: 200px) {
+    
+    .containerHeader{
+        display: none;
+    }
+    .nav1 {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        transform: scaleY(0);
+        transition: 0.5s;
+        transform-origin: center top;
+    }
+    .menu-min {
+        display: block;
+        width: 100%;
+        background-color: rgba(37,57,130, 1);
+        height: 50px;
+        transform: scaleY(1);
+        transition: 0.5s;
+    }
+    .nav-link{
+        color: white !important;
+    }
+    .menuBtn{
+        display: block;
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(37,57,130, 1);
+        border: 1px solid whitesmoke;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menuBtn span::before,
+    .menuBtn span::after,
+    .menuBtn span{
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: whitesmoke;
+        transition: 0.3s;
+    }
+    .menuBtn span::before,
+    .menuBtn span::after{
+        content: '';
+        display: block;
+    }
+    .menuBtn span::before{
+        transform: translateY(-7px);
+    }
+    .menuBtn span::after{
+        transform: translateY(7px);
+    }
+    .menuMinActive span::after{
+        transform: rotate(45deg);
+    }
+    .menuMinActive span::before{
+        transform: rotate(-45deg);
+    }
+    .menuMinActive span{
+        height: 0;
+    }
+    .menuMinHide{
+        transition: 0.5s;
+        transform-origin: top bottom;
+        transform: scaleY(1);
+    }
+    .menuMinHight{
+        height: 267px;
+        transform: scaleY(1);
+        transition: 0.5s;
+    }
+    .menuMinTitle{
+        width: 100%;
+        padding: 15px 70px;
+    }
+    .menuMinTitle span{
+        width: 100%;
+        font-size: 25px;
+        font-weight: bold;
+        color: whitesmoke;
+    }
+    .dropdown-menu{
+        background-color: rgba(37,57,130, 1);
+    }
+    .active{
+        border: 1px solid whitesmoke;
+        border-radius: 15px;
+        background-color: whitesmoke;
+        color: blue !important;
+    }
+}
