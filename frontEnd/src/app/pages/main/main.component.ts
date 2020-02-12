@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { BgService } from 'src/app/shared/services/bg.service';
 // declare var $: any;
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+// import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { GallaryService } from 'src/app/shared/services/gallary.service';
 
 
@@ -14,13 +14,24 @@ import { GallaryService } from 'src/app/shared/services/gallary.service';
 export class MainComponent implements OnInit {
   scrollBtn: boolean = false;
   reviews: any;
-  x: number = 2;
+  photografImg: Array<any>;
+  // x: number = 2;
 
   photoArray: any;
   numStart: number;
   numFinish: number;
 
-  modalImg: any = [];
+  slideConfigPhoto = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    infinite: true,
+    lazyLoad: "ondemand",
+  };
+
+
   slideConfig = {
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -57,15 +68,20 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.refreshResponse();
     this.refreshProject();
-    
-    
+    this.photografImg = [
+      { src: "assets/img/team1.jpg" },
+      { src: "assets/img/photographer.jpg" },
+      { src: "assets/img/photographer2.jpg" },
+    ];
 
+    // console.log(this.photografImg);
   }
-  addModalImg(e) {
-    this.modalImg = e;
-  }
+  // addModalImg(e) {
+  //   this.modalImg = e;
+  // }
 
   refreshProject() {
     this.bgService.getPortrait().subscribe((res) => {
@@ -84,7 +100,7 @@ export class MainComponent implements OnInit {
   refreshResponse() {
     this.bgService.getResponse().subscribe((res) => {
       this.reviews = res;
-      console.log(this.reviews);
+      // console.log(this.reviews);
 
     })
   }
