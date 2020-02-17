@@ -42,6 +42,11 @@ a {
     overflow: hidden;
     position: relative;
 }
+.galary>div>img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
 
 .darkHoverGalary {
     position: absolute;
@@ -101,6 +106,9 @@ a {
     font-size: 32px;
     font-weight: 600;
     font-style: italic;
+    text-align: center;
+    width: 100%;
+    position: absolute;
 }
 
 .arrowGalary {
@@ -256,5 +264,28 @@ a {
     }
     .galary :nth-child(6) {
         grid-row: 16/19;
+    }
+    .close {
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .modal-dialog {
+        max-width: 90%;
+    }
+    
+    .modal-content {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin: 45px 10px;
+    }
+        
+    .slide img {
+        margin: 0px auto;
+        max-height: 60vh;
+        outline: none;
     }
 }
