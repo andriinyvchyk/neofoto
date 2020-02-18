@@ -1,7 +1,7 @@
 <div class="gallaryContainer">
     <div class="titleMain">
         <p *ngIf="galary.lang">Галерея</p>
-        <p *ngIf="!galary.lang">Gallary</p>
+        <p *ngIf="!galary.lang">Gallery</p>
     </div>
 
     <div class="mainBox">
@@ -17,9 +17,9 @@
                 <div class="lastSlide">
                     <p>{{project.arrayImg[0].lastSlide}}</p>
                 </div>
-                
-                    <img src="{{project.arrayImg[0].path + project.arrayImg[0].filename}}" alt="">
-                
+
+                <img src="{{project.arrayImg[0].path + project.arrayImg[0].filename}}" alt="">
+
             </div>
         </div>
     </div>
