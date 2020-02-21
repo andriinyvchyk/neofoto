@@ -172,13 +172,15 @@ option{
     .logo{
         height: 50px;
         float: left;
+        /* margin-left: 80px; */
+        /* width: 200px; */
     }
     .logo>img{
         height: 100%;
     }
     .langChange{
         position: absolute;
-        right: 0px;
+        right: 10px;
         /* float: left; */
     }
 }
