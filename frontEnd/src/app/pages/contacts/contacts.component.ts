@@ -31,9 +31,10 @@ export class ContactsComponent implements OnInit {
   }
   public onSubmit(form: NgForm) {
     const data = Object.assign({}, form.value);
-    this.api.feedback(data).subscribe((res: any) => {}, (err: any) => {console.log(err);});
-    delete data.id;
-    console.log('send');
-    
+    console.log(data)
+    if(data.namePerson && data.namePersonPhone && data.namePersonEmail && data.namePersonMessage && data.typeOfPhoto){
+      this.api.feedback(data).subscribe((res: any) => {}, (err: any) => {console.log(err);});
+      delete data.id;
+    }
   }
 }
